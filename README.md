@@ -19,3 +19,7 @@ Generate a single NFT metadata file:
 ## Requirements
 
 Python 3.6+
+
+## Known Issues
+
+1. Attributes passed in as integers get converted to string literals.
