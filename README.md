@@ -22,7 +22,7 @@ Output will go into `_output/1.json`:
 ```
 {
     "format": "CHIP-0007",
-    "name": "Chia Friends #0001",
+    "name": "Friendly Marmots #0001",
     "description": "Eco friendly avatars",
     "sensitive_content": false,
     "attributes": [
