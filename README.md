@@ -5,8 +5,11 @@
 Generate UUID:
 `python metadata.py -gu`
 
-Generate a single NFT metadata file:
+Generate a single NFT metadata file (written to `_output`):
 `python metadata.py -gm "1" "Friendly Marmots #0001" "Eco friendly avatars" '{"Head":"yes", "Body":"wow", "Eyes":3}'`
+
+Generate a single NFT metadata file (custom output dir):
+`python metadata.py -od "_wow" -gm "1" "Friendly Marmots #0001" "Eco friendly avatars" '{"Head":"yes", "Body":"wow", "Eyes":3}'`
 
 ## Usage
 

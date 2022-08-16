@@ -44,7 +44,7 @@ def gen_chia_chip_0007_attributes_from_json(key_value_json):
     
     return chip0007_formatted_json
 
-def gen_nft_metadata(nft_number, nft_name, nft_description, first_trait_value):
+def gen_nft_metadata(nft_number, nft_name, nft_description, output_dir, first_trait_value):
     
     meta = {
       "format": "CHIP-0007",
@@ -94,14 +94,14 @@ def gen_nft_metadata(nft_number, nft_name, nft_description, first_trait_value):
     fname = f"{nft_number}.json"
     
     try:
-        if os.path.exists(OUTPUT_DIR) != True:
-            os.mkdir(OUTPUT_DIR)
+        if os.path.exists(output_dir) != True:
+            os.mkdir(output_dir)
     except Exception as e:
         print(e)
-        sys.exit(f"ERROR creating {OUTPUT_DIR}")
+        sys.exit(f"ERROR creating {output_dir}")
     
     try:
-        with open(f"{OUTPUT_DIR}/" + fname, 'w') as outfile:
+        with open(f"{output_dir}/" + fname, 'w') as outfile:
             json.dump(meta, outfile, sort_keys=False, indent=4)
     except Exception as e:
         print(e)
@@ -121,6 +121,7 @@ def get_args():
     
     parser.add_argument('-gu', '--generate-uuid', action='store_true', required=False, help='Generate a new Chia NFT collection UUID.')
     parser.add_argument('-gm', '--generate-metadata', metavar=('NFT_NUMBER', 'NFT_NAME', 'NFT_DESCRIPTION', 'TRAITS_AS_KEY_VALUE_JSON'), nargs=4, required=False, help='Generate NFT metadata.\nExample: python metadata.py -gm "0001" "Eco Friends #0001" "The one that got away" "{"Body":"K33", "Eyes":3, "Mouth":"Nasty"}"')
+    parser.add_argument('-od', '--output-dir', metavar=('OUTPUT_DIR'), nargs=1, required=False, help='Custom output directory that overwrites the default')
     
     if len(sys.argv) < 2:
         # parser.print_usage()
@@ -133,12 +134,17 @@ ARGS = get_args()
 
 async def main():
     
+    output_dir = OUTPUT_DIR
+    if ARGS.output_dir:
+        output_dir = ARGS.output_dir[0]
+    
+    
     if ARGS.generate_metadata:
         nft_number = ARGS.generate_metadata[0]
         nft_name = ARGS.generate_metadata[1]
         nft_description = ARGS.generate_metadata[2]
         traits_as_key_values_json_string = ARGS.generate_metadata[3]
-        gen_nft_metadata(nft_number, nft_name, nft_description, traits_as_key_values_json_string)
+        gen_nft_metadata(nft_number, nft_name, nft_description, output_dir, traits_as_key_values_json_string)
     elif ARGS.generate_uuid:
         generate_uuid()
     
