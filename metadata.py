@@ -149,4 +149,7 @@ async def main():
         generate_uuid()
     
 
-asyncio.run(main())
+# Prevent auto executing main when called from another program
+if __name__ == "__main__":
+    asyncio.run(main())
+
