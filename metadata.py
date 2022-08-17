@@ -130,9 +130,9 @@ def get_args():
     
     return parser.parse_args()
 
-ARGS = get_args()
-
 async def main():
+    
+    ARGS = get_args()
     
     output_dir = OUTPUT_DIR
     if ARGS.output_dir:
