@@ -1,0 +1,28 @@
+{
+  "collection": {
+    "name": "Collection Name",
+    "id": "Run <python metadata.py -gu>",
+    "attributes": [
+      {
+        "type": "description",
+        "value": "Example collection of 10000 unique marmots."
+      },
+      {
+          "type": "icon",
+          "value": "https://nftexample.com/assets/img/thumbnail.png"
+      },
+      {
+          "type": "banner",
+          "value": "https://nftexample.com/assets/img/banner.png"
+      },
+      {
+        "type": "twitter",
+        "value": "@NFTexample"
+      },
+      {
+        "type": "website",
+        "value": "https://nftexample.com"
+      }
+    ]
+  }
+}
