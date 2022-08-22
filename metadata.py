@@ -76,8 +76,8 @@ def gen_nft_metadata(nft_number, nft_name, nft_description, output_dir, first_tr
         sys.exit(f"ERROR creating {output_dir}")
     
     try:
-        with open(f"{output_dir}/" + fname, 'w') as outfile:
-            json.dump(meta, outfile, sort_keys=False, indent=4)
+        with open(f"{output_dir}/" + fname, 'w', encoding='utf8') as outfile:
+            json.dump(meta, outfile, sort_keys=False, indent=4, , ensure_ascii=False)
     except Exception as e:
         print(e)
         sys.exit(f"ERROR writing out {fname}")
