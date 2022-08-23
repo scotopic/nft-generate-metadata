@@ -6,6 +6,7 @@ import sys
 import uuid
 
 # validation
+import pathlib
 import jsonschema
 
 ########################################################################
@@ -102,10 +103,17 @@ def validate_nft_metadata(metadata_dir, json_schema_path):
     
     dir_enumerator = os.listdir(metadata_dir)
     dirs_sorted = sorted(dir_enumerator)
+    is_unclean_dir = False
     
     for count, filename in enumerate(dirs_sorted):
         
         path = os.path.join(metadata_dir, filename)
+        
+        file_extension = pathlib.Path(filename).suffix
+        
+        if file_extension != ".json":
+            is_unclean_dir = True
+            continue
         
         try:
             with open(path, 'r') as f:
@@ -119,6 +127,9 @@ def validate_nft_metadata(metadata_dir, json_schema_path):
         except jsonschema.exceptions.ValidationError as err:
             print("Invalid schema foudn:")
             sys.exit(err)
+    
+    if is_unclean_dir == True:
+        print("WARNING: found non .json files that were ignored")
     
     print("SUCCESS: all json was valid")
     
