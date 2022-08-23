@@ -93,7 +93,7 @@ def validate_nft_metadata(metadata_dir, json_schema_path):
     if os.path.exists(metadata_dir) != True:
         sys.exit(f"ERROR metadata dir not found in {metadata_dir}")
     if os.path.exists(json_schema_path) != True:
-        sys.exit(f"ERROR: CHIP JSON schema not found: {chia_json_schema_path}")
+        sys.exit(f"ERROR: CHIP JSON schema not found: {json_schema_path}")
     
     print(f"Validating JSON schema in: {metadata_dir}")
     
@@ -139,7 +139,7 @@ def get_args():
     
     ## Validate Chia CHIP-0007 NFT1 metadata (or specify a path to your own schema)
     parser.add_argument('-vm', '--validate-metadata', metavar=('METADATA_DIR'), nargs=1, required=False, help='Parse all JSON files in this dir and validate each file.')
-    parser.add_argument('-vs', '--validation-schema-path', metavar=('CHIA_JSON_SCHEMA_PATH'), nargs=1, required=False, help='Path to a JSON schema file.')
+    parser.add_argument('-vs', '--validation-schema-path', metavar=('JSON_SCHEMA_PATH'), nargs=1, required=False, help='Path to a JSON schema file.')
     
     if len(sys.argv) < 2:
         # parser.print_usage()
