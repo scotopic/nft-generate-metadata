@@ -38,6 +38,10 @@
 ## How-To
 
 1. Generate the your collection UUID (do this only one time per NFT collection): `python metadata.py -gu`
+1. Copy the `collection_metadata.json` and rename to `<your-project-name>-collection-metadata.json` (i.e. `friendly-marmots-collection-metadata.json`)
+  * Edit the collection metadata file
+  * Change the UUID
+  * Update project relevant descriptions, URLs and social media handles.
 1. Generate a single metadata file with any attributes (see `-gm` command above)
 1. Copy/paste the output to [https://www.jsonschemavalidator.net/s/0Aw7Bmlb](https://www.jsonschemavalidator.net/s/0Aw7Bmlb) to validate ouput.
 1. You are now ready to upload to IPFS/Arweave.
