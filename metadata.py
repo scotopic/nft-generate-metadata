@@ -48,6 +48,7 @@ def gen_nft_metadata(nft_number, nft_name, nft_description, output_dir, first_tr
     
     meta = {
       "format": "CHIP-0007",
+      "minting_tool": "scotopic",
       "name": f"{nft_name}",
       "description": f"{nft_description}",
       "sensitive_content": False,
