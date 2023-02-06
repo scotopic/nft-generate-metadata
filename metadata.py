@@ -35,7 +35,7 @@ def gen_chia_chip_0007_attributes_from_json(key_value_json):
         value = json_data[attribute]
         json_attribute = {
           "trait_type": f"{key}",
-          "value": f"{value}"
+          "value": value
         }
         chip0007_formatted_json.append(json_attribute)
     
