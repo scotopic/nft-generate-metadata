@@ -177,7 +177,7 @@ async def main():
     
     if ARGS.generate_metadata:
         if os.path.exists(collection_metadata_path) != True:
-            sys.exit(f"ERROR collection metadata not found in {cpath}")
+            sys.exit(f"ERROR collection metadata not found in {collection_metadata_path}")
         
         nft_number = ARGS.generate_metadata[0]
         nft_name = ARGS.generate_metadata[1]
